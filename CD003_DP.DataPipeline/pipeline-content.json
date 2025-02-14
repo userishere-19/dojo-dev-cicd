@@ -31,6 +31,78 @@
             "type": "Expression"
           }
         }
+      },
+      {
+        "name": "Test Copy data",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "DW018_BronzeLH",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "b591874f-ba94-4164-9aa7-70ab0f9e400e",
+                    "artifactId": "06513988-bfb6-439f-a77d-2bca55d88289",
+                    "rootFolder": "Tables"
+                  }
+                }
+              },
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "table": "em_customers"
+              }
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "DW001_DWH",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "bh7vab5ztpgubbvmkfjzyjnkuy-j6dzdnmuxjsedgvhocvq7hsaby.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "f1282b5e-309c-479b-96af-d7dceacde3b8",
+                    "workspaceId": "b591874f-ba94-4164-9aa7-70ab0f9e400e"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "metadata",
+                "table": "watermark"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
       }
     ],
     "concurrency": 24,
