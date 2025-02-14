@@ -1,5 +1,42 @@
 {
   "properties": {
-    "activities": []
+    "activities": [
+      {
+        "name": "Set PipelineRunTime",
+        "type": "SetVariable",
+        "dependsOn": [],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "variableName": "PipelineRunTime",
+          "value": 4
+        }
+      },
+      {
+        "name": "Wait1",
+        "type": "Wait",
+        "dependsOn": [
+          {
+            "activity": "Set PipelineRunTime",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "waitTimeInSeconds": {
+            "value": "@variables('PipelineRunTime')",
+            "type": "Expression"
+          }
+        }
+      }
+    ],
+    "variables": {
+      "PipelineRunTime": {
+        "type": "Integer"
+      }
+    }
   }
 }
