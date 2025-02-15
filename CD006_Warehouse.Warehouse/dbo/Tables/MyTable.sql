@@ -4,3 +4,6 @@ CREATE TABLE [dbo].[MyTable] (
 	[sales_amount] int NOT NULL
 );
 
+
+GO
+ALTER TABLE [dbo].[MyTable] ADD CONSTRAINT PK_Mytable primary key NONCLUSTERED ([id]);
