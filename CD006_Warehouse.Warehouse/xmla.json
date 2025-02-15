@@ -45,6 +45,21 @@
                 "value": "Automatic"
               }
             ]
+          },
+          {
+            "name": "MyNewColumn",
+            "dataType": "int64",
+            "sourceColumn": "MyNewColumn",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "MyNewColumn",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
           }
         ],
         "partitions": [
