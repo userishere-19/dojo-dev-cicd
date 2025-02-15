@@ -21,3 +21,16 @@ print('Hello World')
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+# MAGIC %%sparkr
+# MAGIC print('Hello World')
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "r",
+# META   "language_group": "synapse_pyspark"
+# META }
