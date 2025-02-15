@@ -34,3 +34,15 @@ print('Hello World')
 # META   "language": "r",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+# MAGIC %%sql
+# MAGIC SELECT * FROM companies
+
+# METADATA ********************
+
+# META {
+# META   "language": "sparksql",
+# META   "language_group": "synapse_pyspark"
+# META }
