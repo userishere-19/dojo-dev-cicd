@@ -23,6 +23,17 @@
 # META   }
 # META }
 
+# PARAMETERS CELL ********************
+
+my_parameter = 1
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
 # CELL ********************
 
 # Welcome to your new notebook
