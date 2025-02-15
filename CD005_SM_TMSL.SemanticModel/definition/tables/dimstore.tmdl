@@ -1,0 +1,74 @@
+table dimstore
+	lineageTag: f3bb41bf-e25e-4adc-9f9e-84968d8b2a39
+	sourceLineageTag: [dbo].[dimstore]
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cb20593a-835f-43e4-a4ab-2792cb015a55
+		sourceLineageTag: StoreKey
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c26a1d4e-7575-4f93-9c43-beb707d6dc12
+		sourceLineageTag: StoreName
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4197a5dd-fe54-4769-a632-3df962c60548
+		sourceLineageTag: StoreType
+		summarizeBy: none
+		sourceColumn: StoreType
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreCity
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ab5a6e4d-da06-49c9-a1d9-556c203dc5e6
+		sourceLineageTag: StoreCity
+		summarizeBy: none
+		sourceColumn: StoreCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreState
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 123b4b4d-241d-40ec-b425-b7c97afaf41f
+		sourceLineageTag: StoreState
+		summarizeBy: none
+		sourceColumn: StoreState
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreCountry
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ce766502-085f-43d8-9635-addbc93cd42e
+		sourceLineageTag: StoreCountry
+		summarizeBy: none
+		sourceColumn: StoreCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimstore = entity
+		mode: directLake
+		source
+			entityName: dimstore
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

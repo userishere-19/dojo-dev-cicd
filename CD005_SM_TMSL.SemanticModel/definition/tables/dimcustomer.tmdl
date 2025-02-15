@@ -1,0 +1,120 @@
+table dimcustomer
+	lineageTag: 8fc6d373-883f-4027-ae4d-4424c4a08a37
+	sourceLineageTag: [dbo].[dimcustomer]
+
+	measure TotalQuantitySold = SUM(factsales[QuantitySold])
+		formatString: 0
+		lineageTag: e40c709a-9b7e-42c8-8c57-4d3d27666b17
+
+		changedProperty = Name
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ead04f37-3ac6-4458-8161-5f91997d4ebf
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 70b8bc83-0ab1-48c6-b260-6c7832294a5c
+		sourceLineageTag: CustomerName
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerGender
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa5f58a5-6b9f-4f49-9bb8-509368bb8fc7
+		sourceLineageTag: CustomerGender
+		summarizeBy: none
+		sourceColumn: CustomerGender
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerEmail
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cf9a2679-5c29-4067-9712-f9823d7d9bbe
+		sourceLineageTag: CustomerEmail
+		summarizeBy: none
+		sourceColumn: CustomerEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerPhone
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6d7402d9-e68d-44ff-a08b-e320cabf8564
+		sourceLineageTag: CustomerPhone
+		summarizeBy: none
+		sourceColumn: CustomerPhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAddress
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1f29d026-8961-4303-9267-093046e9c8ea
+		sourceLineageTag: CustomerAddress
+		summarizeBy: none
+		sourceColumn: CustomerAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerCity
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b295731d-35a2-45ba-b782-1f0e4d15a5ee
+		sourceLineageTag: CustomerCity
+		summarizeBy: none
+		sourceColumn: CustomerCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerState
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3517ffe8-6aaf-4740-848a-104a975bea4e
+		sourceLineageTag: CustomerState
+		summarizeBy: none
+		sourceColumn: CustomerState
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerZipCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 31e2a1c4-7660-4534-bf36-2ddcfad063d4
+		sourceLineageTag: CustomerZipCode
+		summarizeBy: none
+		sourceColumn: CustomerZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerCountry
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8d32ef54-c68d-4139-b83e-f7ff9cdda849
+		sourceLineageTag: CustomerCountry
+		summarizeBy: none
+		sourceColumn: CustomerCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimcustomer = entity
+		mode: directLake
+		source
+			entityName: dimcustomer
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

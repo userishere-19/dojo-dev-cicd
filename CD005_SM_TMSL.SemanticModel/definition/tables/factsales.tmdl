@@ -1,0 +1,91 @@
+table factsales
+	lineageTag: 2447a2e8-1412-4f78-b44d-d582922d59c1
+	sourceLineageTag: [dbo].[factsales]
+
+	column SalesKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 129f240b-820d-44a2-95b2-9dd714d2b97b
+		sourceLineageTag: SalesKey
+		summarizeBy: none
+		sourceColumn: SalesKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5c728fdb-ed1e-446e-855e-41b985587b25
+		sourceLineageTag: DateKey
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ba5b9c7d-5beb-41ee-a3ca-ace59aca17d9
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 507701db-5d51-41d5-862b-ced7c5bad0d5
+		sourceLineageTag: CustomerKey
+		summarizeBy: count
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c4bc3b76-2528-4419-b77d-2a3ad72455bf
+		sourceLineageTag: StoreKey
+		summarizeBy: count
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesAmount
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 7d3fcbb8-5f6c-417f-98c9-9d6a537e81ed
+		sourceLineageTag: SalesAmount
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuantitySold
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0da00130-340c-439e-84cd-1d967fa10b3e
+		sourceLineageTag: QuantitySold
+		summarizeBy: sum
+		sourceColumn: QuantitySold
+
+		annotation SummarizationSetBy = Automatic
+
+	partition factsales = entity
+		mode: directLake
+		source
+			entityName: factsales
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
