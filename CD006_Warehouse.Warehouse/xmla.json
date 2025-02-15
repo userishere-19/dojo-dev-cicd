@@ -121,6 +121,15 @@
         ]
       }
     ],
+    "relationships": [
+      {
+        "name": "88e6c1b2b234d4789141a56f6c46592a",
+        "fromTable": "MyView",
+        "fromColumn": "id",
+        "toTable": "MyTable",
+        "toColumn": "id"
+      }
+    ],
     "expressions": [
       {
         "name": "DatabaseQuery",
