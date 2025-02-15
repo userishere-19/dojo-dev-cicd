@@ -13,6 +13,60 @@
     "sourceQueryCulture": "en-US",
     "tables": [
       {
+        "name": "MyOtherView",
+        "sourceLineageTag": "[dbo].[MyOtherView]",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sales_amount",
+            "dataType": "int64",
+            "sourceColumn": "sales_amount",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "sales_amount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "MyOtherView",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "MyTable",
         "sourceLineageTag": "[dbo].[MyTable]",
         "columns": [
@@ -80,69 +134,17 @@
             "value": "False"
           }
         ]
-      },
-      {
-        "name": "MyView",
-        "sourceLineageTag": "[dbo].[MyView]",
-        "columns": [
-          {
-            "name": "id",
-            "dataType": "int64",
-            "sourceColumn": "id",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "id",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          },
-          {
-            "name": "sales_amount",
-            "dataType": "int64",
-            "sourceColumn": "sales_amount",
-            "formatString": "0",
-            "sourceProviderType": "int",
-            "sourceLineageTag": "sales_amount",
-            "summarizeBy": "sum",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ]
-          }
-        ],
-        "partitions": [
-          {
-            "name": "{{Partition_Name}}",
-            "mode": "directLake",
-            "source": {
-              "type": "entity",
-              "entityName": "MyView",
-              "expressionSource": "DatabaseQuery",
-              "schemaName": "dbo"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "IsTableInBiModel",
-            "value": "False"
-          }
-        ]
       }
     ],
     "relationships": [
       {
-        "name": "88e6c1b2b234d4789141a56f6c46592a",
-        "fromTable": "MyView",
+        "name": "eafdfbc1ef1e9cfe3ea2326676b1a5e0",
+        "fromTable": "MyOtherView",
         "fromColumn": "id",
         "toTable": "MyTable",
-        "toColumn": "id"
+        "toColumn": "id",
+        "relyOnReferentialIntegrity": true,
+        "securityFilteringBehavior": "none"
       }
     ],
     "expressions": [
